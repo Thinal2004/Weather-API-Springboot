@@ -9,7 +9,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Applies this rule to all your API endpoints
-                .allowedOrigins("*") // Allows any frontend to connect (useful for dev)
+                .allowedOrigins("https://weather-dashboard-frontend-plum.vercel.app/") // Allows frontend to connect (useful for dev)
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 }

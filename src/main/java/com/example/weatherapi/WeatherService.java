@@ -23,4 +23,12 @@ public class WeatherService {
                 .retrieve()
                 .body(WeatherResponse.class);
     }
+
+    public ForecastResponse getForecast(String city) {
+        return restClient.get()
+                // Calls the 5-day / 3-hour forecast endpoint
+                .uri("https://api.openweathermap.org/data/2.5//forecast?q={city}&appid={apiKey}&units=metric", city, apiKey)
+                .retrieve()
+                .body(ForecastResponse.class);
+    }
 }

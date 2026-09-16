@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  build:
+    commands:
+      - echo "Compiling Spring Boot application..."
+      - chmod +x ./mvnw        # Grants Linux execution permissions to Maven Wrapper.
+      - ./mvnw clean package -DskipTests      # Compiles the Java code and packages it into a .jar file (skipping tests to save AWS billable minutes)
+artifacts:
+  files:
+    - target/*.jar      # Tells CodeBuild to save the final compiled .jar file.
+  discard-paths: yes
